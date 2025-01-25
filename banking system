@@ -1,0 +1,79 @@
+
+
+import java.util.Scanner;
+
+class BankAccount{
+        String name ; 
+        String accountNumber;
+        double Balance;
+
+        public BankAccount(String name , String accountNumber , double initialBalance){
+            this.name = name;
+            this.accountNumber = accountNumber;
+            this.Balance = initialBalance;
+        }
+
+        public String getname(){
+            return name;
+        }
+        public void setname(String name){
+            this.name = name;
+        }
+        public String getAccountNumber(){
+            return accountNumber ; 
+        }
+        public void setAccountNumber(String accountNumber){
+            this.accountNumber = accountNumber;
+        }
+        public double getBalance(){
+            return Balance;
+        }
+
+        public void deposit(double amount){
+            if(amount>0 ){
+                Balance += amount;
+                System.out.println("Deposit Successfull  ! Current Balance = "+ Balance);
+            }else if(amount>Balance){
+                 System.out.println("Error !! Insufficint Funds "+ Balance);
+            }else{
+                System.out.println("Deposit must be positive ");
+            }
+        }
+        public void withdrawl(double amount){
+            if(amount>0 && amount <= Balance){
+                Balance -= amount;
+                System.out.println("Withdrawl Successfull ! Current Balance =  "+Balance);
+
+            }else if(amount>Balance{
+                System.out.println("Error !! Insufficint Funds "+Balance);
+           }else{
+               System.out.println("Withdrawl must be positive ");
+           }
+        }
+      
+        public static void main(String [] args){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Create Account:");
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
+            System.out.print("Account Number: ");
+            String accountNumber = scanner.nextLine();
+            System.out.print("Initial Balance: ");
+            double initialBalance = scanner.nextDouble();
+
+            BankAccount account = new BankAccount(name, accountNumber, initialBalance);
+            System.out.println("Deposit");
+            double Depositamount = scanner.nextDouble();
+            account.deposit(Depositamount);
+
+            System.out.println("Withdrawl");
+            double Withdrawlamount = scanner.nextDouble();
+            account.deposit(Withdrawlamount);
+
+
+            scanner.close();
+        
+        }
+    }
+
+
